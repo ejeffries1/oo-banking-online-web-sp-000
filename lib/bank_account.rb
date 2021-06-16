@@ -1,3 +1,5 @@
+require 'pry'
+
 class BankAccount
   attr_reader :name
   attr_accessor :balance, :status
@@ -9,15 +11,16 @@ class BankAccount
   end
 
   def deposit(num)
-   @balance += num
+    sum = @balance += num
+    sum
   end
 
   def display_balance
-    "Your balance is $#{balance}."
+    "Your balance is $#{@balance}."
   end
 
   def valid?
-    if status == "open" && balance > 0
+    if @status == "open" && @balance > 0
       true
     else
       false
@@ -25,6 +28,6 @@ class BankAccount
   end
 
   def close_account
-    @status = "closed"
+      @status = "closed"
   end
 end
